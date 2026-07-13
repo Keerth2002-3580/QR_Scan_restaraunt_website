@@ -66,11 +66,11 @@ export default function Home() {
         {/* ── Recommended For You (featured card — like the big banner in image) ── */}
         {featured && !loadingMenu && (
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="flex items-center justify-center w-6 h-6 rounded-full" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}>
-                <Sparkles className="w-3.5 h-3.5" style={{ color: '#FFFFFF' }} />
+            <div className="flex items-center gap-2.5 mb-3">
+              <div className="flex items-center justify-center w-5 h-5 rounded-full" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}>
+                <Sparkles className="w-3 h-3" style={{ color: '#FFFFFF' }} />
               </div>
-              <h3 className="text-xs font-black uppercase tracking-[0.2em]" style={{ color: '#FFFFFF' }}>Recommended For You</h3>
+              <h3 className="text-[10px] font-black uppercase tracking-widest" style={{ color: '#FFFFFF' }}>Recommended For You</h3>
               <div className="flex-grow h-[1px]" style={{ background: 'linear-gradient(90deg, rgba(255,255,255,0.2) 0%, transparent 100%)' }}></div>
             </div>
             <div
