@@ -75,7 +75,7 @@ export default function FoodDetailDrawer({ item, isOpen, onClose }) {
               <h2 className="text-xl font-black text-white">{item.name}</h2>
               <p className="text-xs mt-1 leading-relaxed" style={{ color: '#666' }}>{item.description}</p>
             </div>
-            <span className="text-xl font-black flex-shrink-0" style={{ color: S }}>${item.price.toFixed(2)}</span>
+            <span className="text-xl font-black flex-shrink-0" style={{ color: S }}>LKR {item.price.toFixed(2)}</span>
           </div>
 
           {/* Spice Level */}
@@ -109,7 +109,7 @@ export default function FoodDetailDrawer({ item, isOpen, onClose }) {
                     className="flex items-center justify-between p-3.5 rounded-2xl w-full cursor-pointer border transition-all"
                     style={chk ? { backgroundColor: 'rgba(16,185,129,0.1)', borderColor: '#10b981', color: '#10b981' } : { backgroundColor: '#111', borderColor: BDR, color: '#666' }}>
                     <span className="text-xs font-bold">{opt.name}</span>
-                    <span className="text-xs font-extrabold">+${opt.price.toFixed(2)}</span>
+                    <span className="text-xs font-extrabold">+ LKR {opt.price.toFixed(2)}</span>
                   </button>
                 );
               })}
@@ -135,7 +135,7 @@ export default function FoodDetailDrawer({ item, isOpen, onClose }) {
             className="flex-grow flex items-center justify-center gap-2 py-3.5 rounded-2xl text-white font-extrabold text-sm cursor-pointer glow-btn transition-all"
             style={{ backgroundColor: S }}>
             <ShoppingBag className="w-4 h-4" />
-            <span>Add to Cart · ${grandTotal.toFixed(2)}</span>
+            <span>Add to Cart · LKR {grandTotal.toFixed(2)}</span>
           </button>
         </div>
       </div>

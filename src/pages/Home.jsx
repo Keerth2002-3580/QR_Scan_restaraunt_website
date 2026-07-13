@@ -80,7 +80,7 @@ export default function Home() {
                   <h3 className="text-base font-extrabold text-white leading-tight">{featured.name}</h3>
                   <p className="text-xs line-clamp-2 font-medium" style={{ color: '#666' }}>{featured.description}</p>
                   <div className="flex items-center gap-3 pt-1">
-                    <span className="text-base font-black" style={{ color: S }}>${featured.price.toFixed(2)}</span>
+                    <span className="text-base font-black" style={{ color: S }}>LKR {featured.price.toFixed(2)}</span>
                     <button
                       onClick={(e) => { e.stopPropagation(); setSelectedItem(featured); }}
                       className="px-4 py-1.5 rounded-full text-white text-xs font-extrabold cursor-pointer transition-all hover:opacity-90"

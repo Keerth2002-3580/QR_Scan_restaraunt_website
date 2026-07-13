@@ -63,7 +63,7 @@ export default function Cart() {
                 <Plus className="w-3.5 h-3.5" />
               </button>
             </div>
-            <span className="font-extrabold text-sm" style={{ color: S }}>${sub.toFixed(2)}</span>
+            <span className="font-extrabold text-sm" style={{ color: S }}>LKR {sub.toFixed(2)}</span>
           </div>
         </div>
       </div>
@@ -96,11 +96,11 @@ export default function Cart() {
           <div className="rounded-2xl p-5 border space-y-3.5" style={{ backgroundColor: CARD, borderColor: BDR }}>
             <p className="text-[10px] font-bold uppercase tracking-wider" style={{ color: '#555' }}>Order Summary</p>
             <div className="text-sm space-y-2.5">
-              <div className="flex justify-between" style={{ color: '#888' }}><span>Subtotal</span><span className="text-white">${subtotal.toFixed(2)}</span></div>
-              <div className="flex justify-between" style={{ color: '#888' }}><span>VAT (8%)</span><span className="text-white">${tax.toFixed(2)}</span></div>
+              <div className="flex justify-between" style={{ color: '#888' }}><span>Subtotal</span><span className="text-white">LKR {subtotal.toFixed(2)}</span></div>
+              <div className="flex justify-between" style={{ color: '#888' }}><span>VAT (8%)</span><span className="text-white">LKR {tax.toFixed(2)}</span></div>
               <div className="border-t pt-2.5 flex justify-between font-extrabold text-base" style={{ borderColor: BDR }}>
                 <span className="text-white">Total</span>
-                <span style={{ color: S }}>${total.toFixed(2)}</span>
+                <span style={{ color: S }}>LKR {total.toFixed(2)}</span>
               </div>
             </div>
           </div>
@@ -114,7 +114,7 @@ export default function Cart() {
             className="w-full flex items-center justify-between py-4 px-6 rounded-2xl text-white font-extrabold text-sm cursor-pointer glow-btn transition-all"
             style={{ backgroundColor: S }}>
             <div className="flex items-center gap-2"><ShoppingBag className="w-4 h-4" /><span>Confirm Order</span></div>
-            <div className="flex items-center gap-1"><span>${total.toFixed(2)}</span><ArrowRight className="w-4 h-4 ml-1" /></div>
+            <div className="flex items-center gap-1"><span>LKR {total.toFixed(2)}</span><ArrowRight className="w-4 h-4 ml-1" /></div>
           </button>
         </div>
       </div>
@@ -125,7 +125,7 @@ export default function Cart() {
           className="w-full flex items-center justify-between py-4 px-6 rounded-2xl text-white font-extrabold text-sm cursor-pointer glow-btn transition-all"
           style={{ backgroundColor: S }}>
           <div className="flex items-center gap-2"><ShoppingBag className="w-4 h-4" /><span>Confirm Order</span></div>
-          <div className="flex items-center gap-1"><span>${total.toFixed(2)}</span><ArrowRight className="w-4 h-4 ml-1" /></div>
+          <div className="flex items-center gap-1"><span>LKR {total.toFixed(2)}</span><ArrowRight className="w-4 h-4 ml-1" /></div>
         </button>
       </div>
     </div>

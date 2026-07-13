@@ -36,7 +36,7 @@ export default function FoodCard({ item, onSelect }) {
         <h4 className="font-bold text-xs text-white line-clamp-1 mb-0.5">{name}</h4>
         <p className="text-[10px] line-clamp-1 flex-grow mb-2" style={{ color: '#555' }}>{description}</p>
         <div className="flex items-center justify-between">
-          <span className="font-extrabold text-sm" style={{ color: '#92000A' }}>${price.toFixed(2)}</span>
+          <span className="font-extrabold text-sm" style={{ color: '#92000A' }}>LKR {price.toFixed(2)}</span>
           {isAvailable && (
             <button onClick={(e) => { e.stopPropagation(); onSelect(item); }}
               className="w-7 h-7 rounded-full flex items-center justify-center text-white cursor-pointer transition-all active:scale-90"

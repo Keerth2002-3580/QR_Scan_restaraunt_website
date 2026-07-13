@@ -70,7 +70,7 @@ export default function OrderConfirmation() {
                         {item.customizations.extras.map((e) => e.name).join(', ')}
                       </p>
                     </div>
-                    <span className="font-extrabold shrink-0" style={{ color: '#ccc' }}>${price.toFixed(2)}</span>
+                    <span className="font-extrabold shrink-0" style={{ color: '#ccc' }}>LKR {price.toFixed(2)}</span>
                   </div>
                 );
               })}
@@ -93,11 +93,11 @@ export default function OrderConfirmation() {
           <div className="rounded-3xl p-5 space-y-4 border" style={{ backgroundColor: CARD, borderColor: BDR }}>
             <p className="text-[10px] font-bold uppercase tracking-wider" style={{ color: '#555' }}>Price Summary</p>
             <div className="space-y-3 text-sm">
-              <div className="flex justify-between" style={{ color: '#888' }}><span>Subtotal</span><span className="text-white">${subtotal.toFixed(2)}</span></div>
-              <div className="flex justify-between" style={{ color: '#888' }}><span>VAT (8%)</span><span className="text-white">${tax.toFixed(2)}</span></div>
+              <div className="flex justify-between" style={{ color: '#888' }}><span>Subtotal</span><span className="text-white">LKR {subtotal.toFixed(2)}</span></div>
+              <div className="flex justify-between" style={{ color: '#888' }}><span>VAT (8%)</span><span className="text-white">LKR {tax.toFixed(2)}</span></div>
               <div className="border-t pt-3 flex justify-between font-extrabold text-lg" style={{ borderColor: BDR }}>
                 <span className="text-white">Grand Total</span>
-                <span style={{ color: S }}>${total.toFixed(2)}</span>
+                <span style={{ color: S }}>LKR {total.toFixed(2)}</span>
               </div>
             </div>
           </div>
@@ -107,7 +107,7 @@ export default function OrderConfirmation() {
             style={{ backgroundColor: S }}>
             {submitting
               ? <><Loader2 className="w-4 h-4 animate-spin" /><span>Sending to Kitchen…</span></>
-              : <><CheckCircle className="w-4 h-4" /><span>Place Order — ${total.toFixed(2)}</span></>}
+              : <><CheckCircle className="w-4 h-4" /><span>Place Order — LKR {total.toFixed(2)}</span></>}
           </button>
         </div>
       </div>
