@@ -69,8 +69,16 @@ export default function FoodDetailDrawer({ item, isOpen, onClose }) {
           <div className="flex items-start justify-between gap-3">
             <div>
               <div className="flex gap-1.5 mb-1.5">
-                {item.isVeg    && <span className="text-[10px] font-extrabold text-emerald-500 border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 rounded-md uppercase tracking-widest">VEG</span>}
-                {item.isNonVeg && <span className="text-[10px] font-extrabold text-rose-500 border border-rose-500/30 bg-rose-500/10 px-2.5 py-0.5 rounded-md uppercase tracking-widest">NON-VEG</span>}
+                {item.isVeg && (
+                  <div className="w-4 h-4 border-[1.5px] border-emerald-600 flex items-center justify-center bg-white rounded-[3px] shadow-sm" title="Veg">
+                    <div className="w-2 h-2 bg-emerald-600 rounded-full"></div>
+                  </div>
+                )}
+                {item.isNonVeg && (
+                  <div className="w-4 h-4 border-[1.5px] border-rose-600 flex items-center justify-center bg-white rounded-[3px] shadow-sm" title="Non-Veg">
+                    <div className="w-2 h-2 bg-rose-600 rounded-full"></div>
+                  </div>
+                )}
                 {item.isSpicy  && <span className="text-[10px] font-extrabold text-orange-500 border border-orange-500/30 bg-orange-500/10 px-2.5 py-0.5 rounded-md uppercase tracking-widest">SPICY</span>}
               </div>
               <h2 className="text-xl font-black text-white">{item.name}</h2>
