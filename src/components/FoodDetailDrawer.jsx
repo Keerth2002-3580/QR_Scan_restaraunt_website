@@ -69,8 +69,9 @@ export default function FoodDetailDrawer({ item, isOpen, onClose }) {
           <div className="flex items-start justify-between gap-3">
             <div>
               <div className="flex gap-1.5 mb-1.5">
-                {item.isVeg    && <span className="text-[9px] font-bold text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded-full">🌱 Veg</span>}
-                {item.isNonVeg && <span className="text-[9px] font-bold text-rose-400 bg-rose-400/10 px-2 py-0.5 rounded-full">🍗 Non-Veg</span>}
+                {item.isVeg    && <span className="text-[10px] font-extrabold text-emerald-500 border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 rounded-md uppercase tracking-widest">VEG</span>}
+                {item.isNonVeg && <span className="text-[10px] font-extrabold text-rose-500 border border-rose-500/30 bg-rose-500/10 px-2.5 py-0.5 rounded-md uppercase tracking-widest">NON-VEG</span>}
+                {item.isSpicy  && <span className="text-[10px] font-extrabold text-orange-500 border border-orange-500/30 bg-orange-500/10 px-2.5 py-0.5 rounded-md uppercase tracking-widest">SPICY</span>}
               </div>
               <h2 className="text-xl font-black text-white">{item.name}</h2>
               <p className="text-xs mt-1 leading-relaxed" style={{ color: '#666' }}>{item.description}</p>

@@ -18,9 +18,9 @@ export default function FoodCard({ item, onSelect }) {
 
         {/* Badges */}
         <div className="absolute top-2 left-2 flex gap-1 flex-wrap">
-          {isVeg && <span className="bg-black/60 text-emerald-400 text-[9px] font-bold px-1.5 py-0.5 rounded-full backdrop-blur-sm">🌱</span>}
-          {isNonVeg && <span className="bg-black/60 text-rose-400 text-[9px] font-bold px-1.5 py-0.5 rounded-full backdrop-blur-sm">🍗</span>}
-          {isSpicy && <span className="bg-black/60 text-[9px] font-bold px-1.5 py-0.5 rounded-full backdrop-blur-sm" style={{ color: '#92000A' }}>🌶️</span>}
+          {isVeg && <span className="bg-emerald-500/10 text-emerald-500 border border-emerald-500/30 text-[9px] font-extrabold px-2 py-0.5 rounded-md backdrop-blur-sm uppercase tracking-widest shadow-sm">VEG</span>}
+          {isNonVeg && <span className="bg-rose-500/10 text-rose-500 border border-rose-500/30 text-[9px] font-extrabold px-2 py-0.5 rounded-md backdrop-blur-sm uppercase tracking-widest shadow-sm">NON-VEG</span>}
+          {isSpicy && <span className="bg-orange-500/10 text-orange-500 border border-orange-500/30 text-[9px] font-extrabold px-2 py-0.5 rounded-md backdrop-blur-sm uppercase tracking-widest shadow-sm">SPICY</span>}
         </div>
 
         {!isAvailable && (
