@@ -17,23 +17,24 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
 
         {/* Left: Location-style table display (like the app in image) */}
-        <button onClick={() => setCurrentPage('home')} className="flex items-center gap-2 cursor-pointer">
-          <div className="p-2 rounded-xl border" style={{ backgroundColor: '#1c1c1c', borderColor: 'rgba(255,255,255,0.07)' }}>
-            <Soup className="w-5 h-5" style={{ color: '#92000A' }} />
+        <button onClick={() => setCurrentPage('home')} className="flex items-center gap-3 cursor-pointer group">
+          <div className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-105" 
+               style={{ backgroundColor: '#050505', border: '1px solid rgba(250,240,190,0.15)', boxShadow: 'inset 0 0 10px rgba(250,240,190,0.05)' }}>
+            <Soup className="w-5 h-5" style={{ color: '#FAF0BE' }} />
           </div>
           <div className="text-left">
             {tableNumber ? (
               <>
-                <div className="flex items-center gap-1 text-[10px] font-semibold" style={{ color: '#888' }}>
-                  <MapPin className="w-3 h-3" style={{ color: '#92000A' }} />
+                <div className="flex items-center gap-1 text-[9px] font-bold uppercase tracking-widest" style={{ color: '#FAF0BE' }}>
+                  <MapPin className="w-3 h-3" />
                   <span>Your Table</span>
                 </div>
-                <p className="text-sm font-black text-white -mt-0.5">Table {tableNumber}</p>
+                <p className="text-[15px] font-black text-white leading-tight">Table {tableNumber}</p>
               </>
             ) : (
               <>
-                <p className="text-[10px] font-semibold" style={{ color: '#888' }}>Gourmet</p>
-                <p className="text-sm font-black text-white">Express QR</p>
+                <p className="text-[9px] font-bold uppercase tracking-widest" style={{ color: '#FAF0BE' }}>Gourmet</p>
+                <p className="text-[15px] font-black text-white leading-tight">Express QR</p>
               </>
             )}
           </div>
