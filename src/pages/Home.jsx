@@ -67,11 +67,11 @@ export default function Home() {
         {featured && !loadingMenu && (
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex items-center justify-center w-6 h-6 rounded-full" style={{ backgroundColor: 'rgba(250,240,190,0.1)' }}>
-                <Sparkles className="w-3.5 h-3.5" style={{ color: '#FAF0BE' }} />
+              <div className="flex items-center justify-center w-6 h-6 rounded-full" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}>
+                <Sparkles className="w-3.5 h-3.5" style={{ color: '#FFFFFF' }} />
               </div>
-              <h3 className="text-xs font-black uppercase tracking-[0.2em]" style={{ color: '#FAF0BE' }}>Recommended For You</h3>
-              <div className="flex-grow h-[1px]" style={{ background: 'linear-gradient(90deg, rgba(250,240,190,0.2) 0%, transparent 100%)' }}></div>
+              <h3 className="text-xs font-black uppercase tracking-[0.2em]" style={{ color: '#FFFFFF' }}>Recommended For You</h3>
+              <div className="flex-grow h-[1px]" style={{ background: 'linear-gradient(90deg, rgba(255,255,255,0.2) 0%, transparent 100%)' }}></div>
             </div>
             <div
               className="relative overflow-hidden rounded-3xl cursor-pointer active:scale-98 transition-all"
