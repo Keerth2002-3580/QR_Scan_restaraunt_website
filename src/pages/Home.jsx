@@ -38,8 +38,7 @@ export default function Home() {
         {/* ── Greeting ── */}
         <div className="flex items-start justify-between">
           <div>
-            <p className="text-xs font-semibold" style={{ color: '#888' }}>{getGreeting()} 👋</p>
-            <h2 className="text-xl font-black text-white mt-0.5 leading-tight">
+            <h2 className="text-xl font-black text-white leading-tight">
               What would you like<br />to <span style={{ color: S }}>order today?</span>
             </h2>
           </div>
