@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Flame, ChevronRight, Zap, UtensilsCrossed } from 'lucide-react';
+import { Search, Flame, ChevronRight, Zap, Sparkles } from 'lucide-react';
 import { useOrder } from '../context/OrderContext';
 import FoodCard from '../components/FoodCard';
 import FoodDetailDrawer from '../components/FoodDetailDrawer';
@@ -38,37 +38,41 @@ export default function Home() {
         {/* ── Greeting ── */}
         <div className="flex items-start justify-between">
           <div>
-            <h2 className="text-[26px] font-black text-white leading-[1.1] tracking-tight">
-              What would you<br />like to <span style={{ color: '#FAF0BE' }}>order today?</span>
+            <h2 className="text-xl font-black text-white leading-tight">
+              What would you like<br />to <span style={{ color: S }}>order today?</span>
             </h2>
-            <div className="w-12 h-1 bg-gradient-to-r from-[#92000A] to-transparent mt-3 rounded-full"></div>
           </div>
-          <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 mt-1 shadow-2xl relative overflow-hidden group"
-               style={{ backgroundColor: '#050505', border: '1px solid rgba(250,240,190,0.15)', boxShadow: 'inset 0 0 15px rgba(250,240,190,0.05)' }}>
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#92000A]/20 to-transparent opacity-50"></div>
-            <UtensilsCrossed className="w-5 h-5 relative z-10 drop-shadow-md" style={{ color: '#FAF0BE' }} />
+          <div className="w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0 mt-1"
+               style={{ backgroundColor: '#1c1c1c', border: '1px solid rgba(255,255,255,0.07)' }}>
+            <span className="text-lg">🍽️</span>
           </div>
         </div>
 
-        {/* ── Search bar ── */}
-        <div className="relative group mt-4">
-          <input type="text" onFocus={() => setCurrentPage('menu')} readOnly
-            placeholder="Search for delicious meals..."
-            className="w-full pl-12 pr-14 py-4 text-[13px] rounded-2xl font-semibold cursor-text outline-none transition-all shadow-inner"
-            style={{ backgroundColor: '#080808', color: '#fff', border: '1px solid rgba(255,255,255,0.05)' }}
-          />
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: '#FAF0BE' }} />
+        {/* ── Search Bar (fake) ── */}
+        <div className="relative">
+          <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+            <Search className="w-5 h-5" style={{ color: '#666' }} />
+          </div>
+          <input type="text" placeholder="Search for food..." readOnly onClick={() => setCurrentPage('menu')}
+            className="w-full pl-12 pr-12 py-4 rounded-2xl text-sm font-medium text-white outline-none cursor-text transition-all focus:ring-1"
+            style={{ backgroundColor: '#111', border: '1px solid rgba(255,255,255,0.07)', caretColor: S }} />
           <button onClick={() => setCurrentPage('menu')}
-            className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer shadow-lg transition-transform active:scale-90"
-            style={{ backgroundColor: '#92000A' }}>
-            <ChevronRight className="w-5 h-5 text-white" />
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-xl flex items-center justify-center cursor-pointer"
+            style={{ backgroundColor: S }}>
+            <ChevronRight className="w-4 h-4 text-white" />
           </button>
         </div>
 
         {/* ── Recommended For You (featured card — like the big banner in image) ── */}
         {featured && !loadingMenu && (
           <div>
-            <p className="text-xs font-bold text-white/50 uppercase tracking-widest mb-3">⭐ Recommended For You</p>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center justify-center w-6 h-6 rounded-full" style={{ backgroundColor: 'rgba(250,240,190,0.1)' }}>
+                <Sparkles className="w-3.5 h-3.5" style={{ color: '#FAF0BE' }} />
+              </div>
+              <h3 className="text-xs font-black uppercase tracking-[0.2em]" style={{ color: '#FAF0BE' }}>Recommended For You</h3>
+              <div className="flex-grow h-[1px]" style={{ background: 'linear-gradient(90deg, rgba(250,240,190,0.2) 0%, transparent 100%)' }}></div>
+            </div>
             <div
               className="relative overflow-hidden rounded-3xl cursor-pointer active:scale-98 transition-all"
               style={{ backgroundColor: '#1c1c1c', border: '1px solid rgba(255,255,255,0.07)' }}
