@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Flame, ChevronRight, Zap } from 'lucide-react';
+import { Search, Flame, ChevronRight, Zap, UtensilsCrossed } from 'lucide-react';
 import { useOrder } from '../context/OrderContext';
 import FoodCard from '../components/FoodCard';
 import FoodDetailDrawer from '../components/FoodDetailDrawer';
@@ -38,28 +38,30 @@ export default function Home() {
         {/* ── Greeting ── */}
         <div className="flex items-start justify-between">
           <div>
-            <h2 className="text-xl font-black text-white leading-tight">
-              What would you like<br />to <span style={{ color: S }}>order today?</span>
+            <h2 className="text-[26px] font-black text-white leading-[1.1] tracking-tight">
+              What would you<br />like to <span style={{ color: '#FAF0BE' }}>order today?</span>
             </h2>
+            <div className="w-12 h-1 bg-gradient-to-r from-[#92000A] to-transparent mt-3 rounded-full"></div>
           </div>
-          <div className="w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0 mt-1"
-               style={{ backgroundColor: '#1c1c1c', border: '1px solid rgba(255,255,255,0.07)' }}>
-            <span className="text-lg">🍽️</span>
+          <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 mt-1 shadow-2xl relative overflow-hidden group"
+               style={{ backgroundColor: '#050505', border: '1px solid rgba(250,240,190,0.15)', boxShadow: 'inset 0 0 15px rgba(250,240,190,0.05)' }}>
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#92000A]/20 to-transparent opacity-50"></div>
+            <UtensilsCrossed className="w-5 h-5 relative z-10 drop-shadow-md" style={{ color: '#FAF0BE' }} />
           </div>
         </div>
 
         {/* ── Search bar ── */}
-        <div className="relative">
+        <div className="relative group mt-4">
           <input type="text" onFocus={() => setCurrentPage('menu')} readOnly
-            placeholder="Find Your Food…"
-            className="w-full pl-11 pr-14 py-3.5 text-sm rounded-2xl font-medium cursor-text outline-none transition-all"
-            style={{ backgroundColor: '#1c1c1c', color: '#ccc', border: '1px solid rgba(255,255,255,0.07)', caretColor: S }}
+            placeholder="Search for delicious meals..."
+            className="w-full pl-12 pr-14 py-4 text-[13px] rounded-2xl font-semibold cursor-text outline-none transition-all shadow-inner"
+            style={{ backgroundColor: '#080808', color: '#fff', border: '1px solid rgba(255,255,255,0.05)' }}
           />
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: '#555' }} />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4" style={{ color: '#FAF0BE' }} />
           <button onClick={() => setCurrentPage('menu')}
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-xl flex items-center justify-center cursor-pointer"
-            style={{ backgroundColor: S }}>
-            <ChevronRight className="w-4 h-4 text-white" />
+            className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer shadow-lg transition-transform active:scale-90"
+            style={{ backgroundColor: '#92000A' }}>
+            <ChevronRight className="w-5 h-5 text-white" />
           </button>
         </div>
 
