@@ -41,7 +41,7 @@ export default function SplashScreen() {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex flex-col overflow-hidden bg-[#0a0a0a]" style={{ height: '100dvh' }}>
+    <div className="fixed inset-0 z-[100] flex flex-col overflow-hidden bg-[#000000]" style={{ height: '100dvh' }}>
 
       {/* ── Top: food photo + overlay (takes remaining space) ── */}
       <div className="relative flex-grow w-full min-h-0 overflow-hidden">
