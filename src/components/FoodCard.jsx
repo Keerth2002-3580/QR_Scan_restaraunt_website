@@ -1,8 +1,21 @@
 import React from 'react';
-import { Plus, Flame } from 'lucide-react';
+import { Plus, Flame, ShoppingBag, Zap } from 'lucide-react';
+import { useOrder } from '../context/OrderContext';
 
 export default function FoodCard({ item, onSelect }) {
+  const { addToCart, setCurrentPage } = useOrder();
   const { name, price, description, isVeg, isNonVeg, isSpicy, isAvailable, image } = item;
+
+  const handleQuickAdd = (e) => {
+    e.stopPropagation();
+    addToCart(item, 1, { spiceLevel: isSpicy ? 'Regular' : 'Not Spicy', exclusions: [], extras: [] });
+  };
+
+  const handleQuickOrder = (e) => {
+    e.stopPropagation();
+    addToCart(item, 1, { spiceLevel: isSpicy ? 'Regular' : 'Not Spicy', exclusions: [], extras: [] });
+    setCurrentPage('cart');
+  };
 
   return (
     <div onClick={() => isAvailable && onSelect(item)}
@@ -39,18 +52,25 @@ export default function FoodCard({ item, onSelect }) {
         )}
       </div>
 
-      {/* Info */}
       <div className="p-3 flex flex-col flex-grow">
         <h4 className="font-bold text-xs text-white line-clamp-1 mb-0.5">{name}</h4>
         <p className="text-[10px] line-clamp-1 flex-grow mb-2" style={{ color: '#555' }}>{description}</p>
-        <div className="flex items-center justify-between">
+        
+        <div className="flex flex-col gap-2 mt-auto">
           <span className="font-extrabold text-sm" style={{ color: '#92000A' }}>LKR {price.toFixed(2)}</span>
           {isAvailable && (
-            <button onClick={(e) => { e.stopPropagation(); onSelect(item); }}
-              className="w-7 h-7 rounded-full flex items-center justify-center text-white cursor-pointer transition-all active:scale-90"
-              style={{ backgroundColor: '#92000A' }}>
-              <Plus className="w-3.5 h-3.5" />
-            </button>
+            <div className="flex items-center gap-1.5 w-full">
+              <button onClick={handleQuickAdd} 
+                      className="flex-1 py-1.5 text-[9px] font-bold text-white rounded-lg border transition-all active:scale-95 text-center flex items-center justify-center gap-1"
+                      style={{ backgroundColor: '#111', borderColor: 'rgba(255,255,255,0.1)' }}>
+                <Plus className="w-2.5 h-2.5" /> ADD
+              </button>
+              <button onClick={handleQuickOrder} 
+                      className="flex-1 py-1.5 text-[9px] font-bold text-white rounded-lg transition-all active:scale-95 text-center flex items-center justify-center gap-1"
+                      style={{ backgroundColor: '#92000A' }}>
+                <Zap className="w-2.5 h-2.5" /> ORDER
+              </button>
+            </div>
           )}
         </div>
       </div>
