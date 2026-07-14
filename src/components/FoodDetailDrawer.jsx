@@ -7,7 +7,7 @@ const CARD = '#1c1c1c';
 const BDR  = 'rgba(255,255,255,0.07)';
 
 export default function FoodDetailDrawer({ item, isOpen, onClose }) {
-  const { addToCart } = useOrder();
+  const { addToCart, setCurrentPage } = useOrder();
   const [quantity,   setQuantity]   = useState(1);
   const [spiceLevel, setSpiceLevel] = useState('Regular');
   const [exclusions, setExclusions] = useState([]);
@@ -29,6 +29,7 @@ export default function FoodDetailDrawer({ item, isOpen, onClose }) {
   const grandTotal    = (item.price + extrasCost) * quantity;
 
   const handleAdd = () => { addToCart(item, quantity, { spiceLevel, exclusions, extras }); onClose(); };
+  const handleOrderNow = () => { addToCart(item, quantity, { spiceLevel, exclusions, extras }); onClose(); setCurrentPage('cart'); };
 
   const OptionBtn = ({ label, active, onClick, color = S }) => (
     <button onClick={onClick}
@@ -127,25 +128,41 @@ export default function FoodDetailDrawer({ item, isOpen, onClose }) {
         </div>
 
         {/* Sticky footer */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 flex items-center gap-3 border-t"
+        <div className="absolute bottom-0 left-0 right-0 p-4 flex flex-col gap-3 border-t"
              style={{ backgroundColor: '#181818', borderColor: BDR }}>
-          <div className="flex items-center rounded-2xl p-1 border" style={{ backgroundColor: '#111', borderColor: BDR }}>
-            <button onClick={() => quantity > 1 && setQuantity(quantity - 1)}
-              className="w-9 h-9 rounded-xl flex items-center justify-center transition-all cursor-pointer text-white hover:bg-white/5">
-              <Minus className="w-4 h-4" />
+          
+          <div className="flex items-center justify-between px-1">
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-medium" style={{ color: '#888' }}>Total</span>
+              <span className="text-lg font-black text-white">LKR {grandTotal.toFixed(2)}</span>
+            </div>
+            
+            <div className="flex items-center rounded-xl p-1 border" style={{ backgroundColor: '#111', borderColor: BDR }}>
+              <button onClick={() => quantity > 1 && setQuantity(quantity - 1)}
+                className="w-8 h-8 rounded-lg flex items-center justify-center transition-all cursor-pointer text-white hover:bg-white/5">
+                <Minus className="w-4 h-4" />
+              </button>
+              <span className="w-8 text-center text-sm font-black text-white">{quantity}</span>
+              <button onClick={() => setQuantity(quantity + 1)}
+                className="w-8 h-8 rounded-lg flex items-center justify-center transition-all cursor-pointer text-white hover:bg-white/5">
+                <Plus className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <button onClick={handleAdd}
+              className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-2xl text-white font-bold text-sm cursor-pointer transition-all active:scale-95 border"
+              style={{ backgroundColor: '#1c1c1c', borderColor: BDR }}>
+              <span>Add to Cart</span>
             </button>
-            <span className="w-7 text-center text-sm font-black text-white">{quantity}</span>
-            <button onClick={() => setQuantity(quantity + 1)}
-              className="w-9 h-9 rounded-xl flex items-center justify-center transition-all cursor-pointer text-white hover:bg-white/5">
-              <Plus className="w-4 h-4" />
+            <button onClick={handleOrderNow}
+              className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-2xl text-white font-extrabold text-sm cursor-pointer glow-btn transition-all active:scale-95"
+              style={{ backgroundColor: S }}>
+              <ShoppingBag className="w-4 h-4" />
+              <span>Order Now</span>
             </button>
           </div>
-          <button onClick={handleAdd}
-            className="flex-grow flex items-center justify-center gap-2 py-3.5 rounded-2xl text-white font-extrabold text-sm cursor-pointer glow-btn transition-all"
-            style={{ backgroundColor: S }}>
-            <ShoppingBag className="w-4 h-4" />
-            <span>Add to Cart · LKR {grandTotal.toFixed(2)}</span>
-          </button>
         </div>
       </div>
     </div>
